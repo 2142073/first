@@ -15,6 +15,9 @@ public class knight : MonoBehaviour
 
     void Update()
     {
+        //毎秒x軸に１ずつ移動する
+        transform.Translate(1 * Time.deltaTime, 0, 0);
+
 
     }
 }
