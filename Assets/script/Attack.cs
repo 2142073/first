@@ -5,11 +5,24 @@ public class Attack : MonoBehaviour
     public GameObject ballPrefab; // プレハブとして設定するボールのゲームオブジェクト
     public float ballSpeed = 10f; // ボールの速度
 
+    float proglessTime;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        proglessTime += Time.deltaTime;//time.daletimeで毎フレームの時間を取得
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
         {
-            LaunchBall();
+            // 敵の向きに向く
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, -other.transform.position - transform.position);
+
+            if(proglessTime>1.5f)//前の行動から3秒以上経っていたらボールを発射
+            {
+                 LaunchBall();
+                 proglessTime=0;        
+            }
         }
     }
 

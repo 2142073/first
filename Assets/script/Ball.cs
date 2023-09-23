@@ -22,7 +22,12 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            EnemyHealth.instance.TakeDamage(100);
+            //触れた敵が持っているEnemyHealthを取得して、TakeDamageメソッドを呼び出す
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+            enemyHealth.TakeDamage(50);
+            }
             Destroy(gameObject);
         }
     }
