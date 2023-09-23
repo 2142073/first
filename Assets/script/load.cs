@@ -13,19 +13,19 @@ public class load : MonoBehaviour
     {
        if(Input.GetKeyDown(KeyCode.D))
        {
-        enemy.instance.right();
+        enemy.instance.RightMove();
        } 
        if(Input.GetKeyDown(KeyCode.S))
        {
-        enemy.instance.down();
+        enemy.instance.DownMove();
        } 
        if(Input.GetKeyDown(KeyCode.A))
        {
-        enemy.instance.right();
+        enemy.instance.LeftMove();
        } 
        if(Input.GetKeyDown(KeyCode.W))
        {
-        enemy.instance.up();
+        enemy.instance.UpMove();
        } 
        
     }
